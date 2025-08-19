@@ -12,12 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* TUTAJ JEST KOD CSS ODPOWIEDZIALNY ZA TŁO */
+/* TUTAJ JEST KOD CSS ODPOWIEDZIALNY ZA TŁO */
 body {
-    background-color: #000022;
+    background-color: #002200; /* Głęboka, ciemna zieleń */
     background-image:
-        radial-gradient(circle at 100% 100%, transparent 10%, #0a0b16 15%, #000033 20%, #000044 30%, transparent 45%),
-        radial-gradient(circle at 0% 0%, transparent 10%, #0a0b16 15%, #000033 20%, #000044 30%, transparent 45%);
+        radial-gradient(circle at 100% 100%, transparent 10%, #0a160a 15%, #003300 20%, #004400 30%, transparent 45%),
+        radial-gradient(circle at 0% 0%, transparent 10%, #0a160a 15%, #003300 20%, #004400 30%, transparent 45%);
     background-size: 200% 200%;
     background-position: 50% 50%;
     animation: ocean-waves 12s ease-in-out infinite alternate;
@@ -60,22 +60,22 @@ body {
     border-radius: 50%;
     object-fit: cover;
     /* Nowe kolory dla pulsowania ramki */
-    box-shadow: 0 0 0 4px #4169e1, 0 0 20px 8px rgba(65, 105, 225, 0.7);
+    box-shadow: 0 0 0 4px #228b22, 0 0 20px 8px rgba(34, 139, 34, 0.7);
     animation: glow-pulse 2.5s infinite;
 }
 
 @keyframes glow-pulse {
     0% {
-        /* Granatowy kolor z blaskiem */
-        box-shadow: 0 0 0 4px #6495ed, 0 0 20px 8px rgba(100, 149, 237, 0.5);
+        /* Zielony kolor z blaskiem */
+        box-shadow: 0 0 0 4px #3cb371, 0 0 20px 8px rgba(60, 179, 113, 0.5);
     }
     50% {
-        /* Niebieski kolor z silniejszym blaskiem */
-        box-shadow: 0 0 0 4px #1e90ff, 0 0 25px 12px rgba(30, 144, 255, 0.8);
+        /* Jasnozielony kolor z silniejszym blaskiem */
+        box-shadow: 0 0 0 4px #00ff00, 0 0 25px 12px rgba(0, 255, 0, 0.8);
     }
     100% {
-        /* Powrót do granatowego koloru */
-        box-shadow: 0 0 0 4px #6495ed, 0 0 20px 8px rgba(100, 149, 237, 0.5);
+        /* Powrót do ciemniejszego zielonego koloru */
+        box-shadow: 0 0 0 4px #3cb371, 0 0 20px 8px rgba(60, 179, 113, 0.5);
     }
 }
 
@@ -110,7 +110,7 @@ body {
 .link-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
     /* Kolor obramowania przy najechaniu myszką */
-    border-color: #00008b;
+    border-color: #006400; /* Ciemnozielony */
 }
 
 .link-icon {
@@ -203,7 +203,7 @@ body {
     height: auto;
     z-index: 2;
 }
-    </style>
+</style>
 </head>
 
 <body>
