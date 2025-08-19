@@ -104,7 +104,6 @@ body {
     text-decoration: none;
     color: #fff;
     transition: background-color 0.3s ease, border-color 0.3s ease;
-    /* TE DWIE WŁAŚCIWOŚCI SĄ KONIECZNE DLA ANIMACJI */
     position: relative;
     overflow: hidden;
 }
@@ -112,6 +111,12 @@ body {
 .link-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
     border-color: #00008b;
+}
+
+/* ZASTĄP SWÓJ STARY BLOK `.link-text` TYM PONIŻEJ */
+.link-text {
+    text-align: left;
+    flex-grow: 1;
 }
 
 /* DODAJ TEN KOD NA SAMYM KOŃCU SEKCJI `<style>` */
@@ -239,7 +244,8 @@ body {
         <p class="link-title">Twitch</p>
         <p class="link-subtitle"></p>
     </div>
-    <div class="link-loading-bar"></div> </a>
+    <div class="link-loading-bar"></div>
+</a>
                 <a href="https://www.instagram.com/mokrysuchar" target="_blank" class="link-button">
                     <div class="link-icon">
                         <img src="images/instagram.png" alt="Instagram Logo">
