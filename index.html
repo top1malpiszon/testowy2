@@ -14,146 +14,85 @@
     <style>
         /* TUTAJ JEST KOD CSS ODPOWIEDZIALNY ZA TŁO */
 body {
-    background-color: #000022;
-    background-image:
-        radial-gradient(circle at 100% 100%, transparent 10%, #0a0b16 15%, #000033 20%, #000044 30%, transparent 45%),
-        radial-gradient(circle at 0% 0%, transparent 10%, #0a0b16 15%, #000033 20%, #000044 30%, transparent 45%);
-    background-size: 200% 200%;
-    background-position: 50% 50%;
-    animation: ocean-waves 12s ease-in-out infinite alternate;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    background-color: #000022;
+    background-image:
+        radial-gradient(circle at 100% 100%, transparent 10%, #0a0b16 15%, #000033 20%, #000044 30%, transparent 45%),
+        radial-gradient(circle at 0% 0%, transparent 10%, #0a0b16 15%, #000033 20%, #000044 30%, transparent 45%);
+    background-size: 200% 200%;
+    background-position: 50% 50%;
+    animation: ocean-waves 12s ease-in-out infinite alternate;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 @keyframes ocean-waves {
-    from {
-        background-position: 0% 0%;
-    }
+    from {
+        background-position: 0% 0%;
+    }
 
-    to {
-        background-position: 100% 100%;
-    }
+    to {
+        background-position: 100% 100%;
+    }
 }
 
 .page-container {
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .profile-avatar {
-    margin-top: 20px;
+    margin-top: 20px;
 }
 
 /* ZMIENIONY KOD DLA PULSUJĄCEJ RAMKI */
 .avatar-image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    /* Nowe kolory dla pulsowania ramki */
-    box-shadow: 0 0 0 4px #4169e1, 0 0 20px 8px rgba(65, 105, 225, 0.7);
-    animation: glow-pulse 2.5s infinite;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* Nowe kolory dla pulsowania ramki */
+    box-shadow: 0 0 0 4px #4169e1, 0 0 20px 8px rgba(65, 105, 225, 0.7);
+    animation: glow-pulse 2.5s infinite;
 }
 
 @keyframes glow-pulse {
-    0% {
-        /* Granatowy kolor z blaskiem */
-        box-shadow: 0 0 0 4px #6495ed, 0 0 20px 8px rgba(100, 149, 237, 0.5);
-    }
-    50% {
-        /* Niebieski kolor z silniejszym blaskiem */
-        box-shadow: 0 0 0 4px #1e90ff, 0 0 25px 12px rgba(30, 144, 255, 0.8);
-    }
-    100% {
-        /* Powrót do granatowego koloru */
-        box-shadow: 0 0 0 4px #6495ed, 0 0 20px 8px rgba(100, 149, 237, 0.5);
-    }
+    0% {
+        /* Granatowy kolor z blaskiem */
+        box-shadow: 0 0 0 4px #6495ed, 0 0 20px 8px rgba(100, 149, 237, 0.5);
+    }
+    50% {
+        /* Niebieski kolor z silniejszym blaskiem */
+        box-shadow: 0 0 0 4px #1e90ff, 0 0 25px 12px rgba(30, 144, 255, 0.8);
+    }
+    100% {
+        /* Powrót do granatowego koloru */
+        box-shadow: 0 0 0 4px #6495ed, 0 0 20px 8px rgba(100, 149, 237, 0.5);
+    }
 }
 
 .profile-name {
-    margin-top: 10px;
-    font-size: 24px;
-    font-weight: 700;
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 20px;
-}
-
-/* Styl dla wszystkich linków w "kafelkach" */
-.link-button {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    text-decoration: none;
-    color: #fff;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-    position: relative;
-}
-
-.link-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    /* Kolor obramowania przy najechaniu myszką */
-    border-color: #00008b;
-}
-
-.link-icon {
-    width: 48px;
-    height: 48px;
-    margin-right: 15px;
-    border-radius: 8px;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-.link-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.link-text {
-    text-align: left;
-}
-
-.link-title {
-    font-weight: 700;
-    font-size: 16px;
-    margin: 0;
-}
-
-.link-subtitle {
-    font-weight: 400;
-    font-size: 12px;
-    opacity: 0.8;
-    margin: 0;
-}
-
-/* Styl dla linków w sekcji links-container */
-.links-container {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     gap: 16px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
-/* Styl dla wszystkich linków w "kafelkach" */
+/* ZMIENIONY KOD DLA PASKÓW ŁADOWANIA */
 .link-button {
     display: flex;
     align-items: center;
@@ -174,7 +113,88 @@ body {
     border-color: #00008b;
 }
 
-/* Styl dla obrazka 18+ */
+.link-icon {
+    width: 48px;
+    height: 48px;
+    margin-right: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.link-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.link-text {
+    text-align: left;
+}
+
+.link-title {
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0;
+}
+
+.link-subtitle {
+    font-weight: 400;
+    font-size: 12px;
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* Styl dla linków w sekcji links-container */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+/* Dodatkowe style dla banerów */
+.link-image-container {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.link-image-container .link-button {
+    padding: 0;
+    display: block;
+}
+
+.link-image-banner {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.link-title-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Stopka */
+.footer-logo {
+    margin-top: 40px;
+    opacity: 0.7;
+    font-size: 14px;
+}
+
+.footer-logo a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* DODANO: Styl dla obrazka 18+ */
 .age-restriction-image {
     position: absolute;
     right: 5px;
@@ -184,7 +204,7 @@ body {
     z-index: 2;
 }
 
-/* Styl dla paska ładowania */
+/* DODANO: Styl dla paska ładowania */
 .link-loading-bar {
     position: absolute;
     bottom: 0;
