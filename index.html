@@ -92,7 +92,7 @@ body {
     margin-top: 20px;
 }
 
-/* Styl dla wszystkich linków w "kafelkach" */
+/* ZMIENIONO: Styl dla wszystkich linków w "kafelkach" */
 .link-button {
     display: flex;
     align-items: center;
@@ -105,12 +105,28 @@ body {
     color: #fff;
     transition: background-color 0.3s ease, border-color 0.3s ease;
     position: relative;
+    overflow: hidden;
 }
 
 .link-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
     /* Kolor obramowania przy najechaniu myszką */
     border-color: #00008b;
+}
+
+/* DODANO: Styl dla paska ładowania */
+.link-loading-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: #000080; /* Granatowy kolor */
+    transition: width 0.8s ease-in-out;
+}
+
+.link-button:hover .link-loading-bar {
+    width: 100%;
 }
 
 .link-icon {
