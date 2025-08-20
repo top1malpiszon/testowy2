@@ -52,7 +52,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 20px;
+        margin-top: 80px; /* Zwiększono górny margines, aby obniżyć cały nagłówek */
     }
 
     .avatar-image {
@@ -80,6 +80,16 @@
         margin-top: 10px;
         font-size: 24px;
         font-weight: 700;
+        margin-bottom: 0;
+    }
+    
+    .profile-contact {
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        opacity: 0.8;
+        color: #ccc;
     }
 
     /* Nowe kwadratowe kafelki dla ikonek społecznościowych */
@@ -168,6 +178,22 @@
 
     .link-button:hover .link-loading-bar {
         width: 100%;
+    }
+    
+    .holy-icon {
+        position: absolute;
+        right: 10px;
+        top: 30px; /* Zaktualizowana pozycja, żeby obniżyć ikonę */
+        width: 20px;
+        height: 20px;
+        z-index: 2;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        color: #fff;
+    }
+    
+    .link-button:hover .holy-icon {
+        opacity: 1;
     }
 
     .link-icon {
@@ -270,6 +296,8 @@
                 <img src="images/suchar.png" alt="MokrySuchar Avatar" class="avatar-image">
             </div>
             <h1 class="profile-name">MokrySuchar</h1>
+            
+            <p class="profile-contact">Kontakt: mokrysuchar@stormmedia.gg</p>
             <div class="social-icons">
                 <a href="https://www.twitch.tv/MokrySuchar" target="_blank" class="social-link">
                     <img src="images/twitch.png" alt="Twitch Logo">
@@ -324,6 +352,14 @@
             </a>
             
             <a href="https://www.instant-gaming.com/?igr=suchar" target="_blank" class="link-button">
+                <!-- Dodano ikonę strzałki SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="holy-icon">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" x2="21" y1="14" y2="3" />
+                </svg>
                 <div class="link-icon">
                     <img src="images/instant2.png" alt="instant icon">
                 </div>
@@ -335,8 +371,16 @@
             </a>
             
             <a href="http://pl.weareholy.com/suchar" class="link-button">
+                 <!-- Dodano ikonę strzałki SVG -->
+                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="holy-icon">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" x2="21" y1="14" y2="3" />
+                </svg>
                 <div class="link-icon">
-                    <img src="images/holy11.png" alt="instant icon">
+                    <img src="images/holy11.png" alt="holy icon">
                 </div>
                 <div class="link-text">
                     <p class="link-title">Zamów zestaw startowy Holy! 10% Taniej!</p>
@@ -346,6 +390,14 @@
             </a>
             
             <a href="https://tipo.live/p/mokrysuchar" target="_blank" class="link-button">
+                <!-- Dodano ikonę strzałki SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="holy-icon">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" x2="21" y1="14" y2="3" />
+                </svg>
                 <div class="link-icon">
                     <img src="images/tipo4.png" alt="tipo icon">
                 </div>
