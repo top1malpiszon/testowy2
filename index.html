@@ -51,7 +51,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* Usunięto margines, aby nagłówek był wyżej */
     }
 
     .avatar-image {
@@ -59,7 +58,6 @@
         height: 120px;
         border-radius: 50%;
         object-fit: cover;
-        /* Zmieniono kolor cienia na taki jak podświetlenie kafelków */
         box-shadow: 0 0 0 4px #4169e1, 0 0 20px 8px rgba(65, 105, 225, 0.7);
         animation: glow-pulse 2.5s infinite;
     }
@@ -87,7 +85,6 @@
         font-size: 16px;
         font-weight: 400;
         margin-top: 5px;
-        /* Usunięto margines dolny */
     }
 
     .contact-icon {
@@ -287,6 +284,63 @@
         height: auto;
         z-index: 2;
     }
+
+    /* Sekcja na najnowszy film z YouTube */
+    .latest-content-section {
+        margin-top: 40px;
+        text-align: left;
+        padding: 0 20px;
+    }
+
+    .latest-content-section h2 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #4169e1;
+        text-align: center;
+    }
+    
+    .content-cards-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap; 
+    }
+
+    .content-card-link {
+        display: block;
+        width: 100%;
+        max-width: 160px; 
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        text-decoration: none;
+        color: #fff;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+    }
+
+    .content-card-link:hover {
+        background-color: rgba(65, 105, 225, 0.15);
+        border-color: #4169e1;
+        box-shadow: 0 0 20px 5px rgba(65, 105, 225, 0.4);
+        transform: scale(1.05);
+    }
+
+    .content-card-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .content-card-title {
+        font-size: 14px;
+        font-weight: 600;
+        padding: 10px;
+        text-align: center;
+        margin: 0;
+    }
     </style>
 </head>
 
@@ -410,6 +464,18 @@
                 <div class="link-loading-bar"></div>
             </a>
         </main>
+        
+        <!-- Sekcja na najnowszy film z YouTube -->
+        <section id="latestContentSection" class="latest-content-section">
+            <h2>Najnowszy filmik na youtube!</h2>
+            <div class="content-cards-container">
+                <!-- Zmień tylko atrybut "href" w tym wierszu, a miniaturka zaktualizuje się automatycznie! -->
+                <a href="https://www.youtube.com/watch?v=HmIRBmJcYAo" target="_blank" class="content-card-link" id="youtubeLink">
+                    <img src="https://i.ytimg.com/vi/kFoS3yZ4D9c/hqdefault.jpg" alt="Miniatura wideo 1" class="content-card-image" id="youtubeThumbnail">
+                    <p class="content-card-title" id="youtubeTitle">Tytuł Twojego najnowszego filmu tutaj</p>
+                </a>
+            </div>
+        </section>
 
         <footer class="footer-text">
             <strong>⚠️ GRAJ ODPOWIEDZIALNIE ⚠️</strong><br>
@@ -419,5 +485,33 @@
             i nie ponosimy odpowiedzialności za skutki korzystania z tych serwisów.
         </footer>
     </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Pobranie elementów DOM
+            const youtubeThumbnail = document.getElementById('youtubeThumbnail');
+            const youtubeLink = document.getElementById('youtubeLink');
+
+            // Funkcja do aktualizacji miniaturki i linku
+            function updateThumbnail() {
+                const url = youtubeLink.href;
+
+                // Regex do wyciągania ID filmu z różnych formatów URL YouTube
+                const regex = /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/))([\w-]+)/;
+                const match = url.match(regex);
+
+                if (match && match[1]) {
+                    const videoId = match[1];
+                    const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+                    
+                    // Aktualizacja atrybutu src
+                    youtubeThumbnail.src = thumbnailUrl;
+                }
+            }
+
+            // Uruchomienie funkcji po załadowaniu strony, aby zaktualizować miniaturkę
+            updateThumbnail();
+        });
+    </script>
 </body>
 </html>
