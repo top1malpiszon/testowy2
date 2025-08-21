@@ -285,7 +285,6 @@
         z-index: 2;
     }
 
-    /* Sekcja na najnowszy film z YouTube */
     .latest-content-section {
         margin-top: 40px;
         text-align: left;
@@ -465,11 +464,9 @@
             </a>
         </main>
         
-        <!-- Sekcja na najnowszy film z YouTube -->
         <section id="latestContentSection" class="latest-content-section">
             <h2>Najnowszy filmik na youtube!</h2>
             <div class="content-cards-container">
-                <!-- Zmień tylko atrybut "href" w tym wierszu, a miniaturka zaktualizuje się automatycznie! -->
                 <a href="https://www.youtube.com/watch?v=HmIRBmJcYAo" target="_blank" class="content-card-link" id="youtubeLink">
                     <img src="https://i.ytimg.com/vi/kFoS3yZ4D9c/hqdefault.jpg" alt="Miniatura wideo 1" class="content-card-image" id="youtubeThumbnail">
                     <p class="content-card-title" id="youtubeTitle">Tytuł Twojego najnowszego filmu tutaj</p>
@@ -488,15 +485,12 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Pobranie elementów DOM
             const youtubeThumbnail = document.getElementById('youtubeThumbnail');
             const youtubeLink = document.getElementById('youtubeLink');
 
-            // Funkcja do aktualizacji miniaturki i linku
             function updateThumbnail() {
                 const url = youtubeLink.href;
 
-                // Regex do wyciągania ID filmu z różnych formatów URL YouTube
                 const regex = /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/))([\w-]+)/;
                 const match = url.match(regex);
 
@@ -504,12 +498,10 @@
                     const videoId = match[1];
                     const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
                     
-                    // Aktualizacja atrybutu src
                     youtubeThumbnail.src = thumbnailUrl;
                 }
             }
 
-            // Uruchomienie funkcji po załadowaniu strony, aby zaktualizować miniaturkę
             updateThumbnail();
         });
     </script>
