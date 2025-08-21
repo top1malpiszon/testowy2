@@ -287,7 +287,7 @@
 
     .latest-content-section {
         margin-top: 40px;
-        text-align: left;
+        text-align: center;
         padding: 0 20px;
     }
 
@@ -309,7 +309,7 @@
     .content-card-link {
         display: block;
         width: 100%;
-        max-width: 160px; 
+        max-width: 160px;
         background-color: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 12px;
@@ -330,16 +330,9 @@
         width: 100%;
         height: auto;
         display: block;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: none; /* Usunięcie dolnej ramki */
     }
 
-    .content-card-title {
-        font-size: 14px;
-        font-weight: 600;
-        padding: 10px;
-        text-align: center;
-        margin: 0;
-    }
     </style>
 </head>
 
@@ -467,9 +460,8 @@
         <section id="latestContentSection" class="latest-content-section">
             <h2>Najnowszy filmik na youtube!</h2>
             <div class="content-cards-container">
-                <a href="https://www.youtube.com/watch?v=kFoS3yZ4D9c" target="_blank" class="content-card-link" id="youtubeLink">
+                <a href="https://www.youtube.com/watch?v=7RQtGOnI9uc" target="_blank" class="content-card-link" id="youtubeLink">
                     <img src="https://i.ytimg.com/vi/kFoS3yZ4D9c/hqdefault.jpg" alt="Miniatura wideo 1" class="content-card-image" id="youtubeThumbnail">
-                    <p class="content-card-title" id="youtubeTitle"></p>
                 </a>
             </div>
         </section>
