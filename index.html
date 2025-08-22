@@ -247,6 +247,9 @@
         font-size: 12px;
         opacity: 0.8;
         margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 5px;
     }
 
     .link-image-container {
@@ -332,7 +335,53 @@
         display: block;
         border-bottom: none;
     }
+    
+    .section-separator {
+        width: 80%;
+        height: 2px;
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), #4169e1, rgba(255, 255, 255, 0.1));
+        margin: 40px auto;
+        border-radius: 1px;
+        opacity: 0.6;
+    }
 
+    .copy-icon {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: middle;
+        transition: transform 0.2s ease-in-out;
+        width: 16px;
+        height: 16px;
+    }
+    
+    .copy-icon:hover {
+        transform: scale(1.1);
+    }
+    
+    #copy-message-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        pointer-events: none;
+    }
+
+    .copy-message {
+        background-color: #4169e1;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        font-size: 14px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    }
+
+    .copy-message.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
     </style>
 </head>
 
@@ -377,6 +426,8 @@
             </div>
         </div>
 
+        <div class="section-separator"></div>
+
         <main class="links-container">
             <a href="https://csgo-skins.com/?ref=Suchar" target="_blank" class="link-button">
                 <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
@@ -385,7 +436,16 @@
                 </div>
                 <div class="link-text">
                     <p class="link-title">CSGOSKINS - 2.10 I 10% WIĘCEJ DO DOŁADOWANIA</p>
-                    <p class="link-subtitle">Kod: SUCHAR</p>
+                    <p class="link-subtitle">
+                        Kod: SUCHAR 
+                        <span class="copy-icon" data-code="SUCHAR">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="13" height="13" x="9" y="9" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg>
+                        </span>
+                    </p>
                 </div>
                 <div class="link-loading-bar"></div>
             </a>
@@ -397,7 +457,43 @@
                 </div>
                 <div class="link-text">
                     <p class="link-title">300 zł we freebetach na start! </p>
-                    <p class="link-subtitle">Kod: SUCHAR</p>
+                    <p class="link-subtitle">
+                        Kod: SUCHAR 
+                        <span class="copy-icon" data-code="SUCHAR">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="13" height="13" x="9" y="9" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg>
+                        </span>
+                    </p>
+                </div>
+                <div class="link-loading-bar"></div>
+            </a>
+            
+            <a href="http://pl.weareholy.com/suchar" target="_blank" class="link-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="holy-icon">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" x2="21" y1="14" y2="3" />
+                </svg>
+                <div class="link-icon">
+                    <img src="images/holy11.png" alt="holy icon">
+                </div>
+                <div class="link-text">
+                    <p class="link-title">Zamów zestaw startowy Holy! 10% Taniej!</p>
+                    <p class="link-subtitle">
+                        Kod: SUCHAR 
+                        <span class="copy-icon" data-code="SUCHAR">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="13" height="13" x="9" y="9" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg>
+                        </span>
+                    </p>
                 </div>
                 <div class="link-loading-bar"></div>
             </a>
@@ -416,24 +512,6 @@
                 <div class="link-text">
                     <p class="link-title">Instant Gaming ciesz się cenami aż do 90% taniej!</p>
                     <p class="link-subtitle"></p>
-                </div>
-                <div class="link-loading-bar"></div>
-            </a>
-            
-            <a href="http://pl.weareholy.com/suchar" target="_blank" class="link-button">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="holy-icon">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                    <polyline points="15 3 21 3 21 9" />
-                    <line x1="10" x2="21" y1="14" y2="3" />
-                </svg>
-                <div class="link-icon">
-                    <img src="images/holy11.png" alt="holy icon">
-                </div>
-                <div class="link-text">
-                    <p class="link-title">Zamów zestaw startowy Holy! 10% Taniej!</p>
-                    <p class="link-subtitle">Kod: SUCHAR</p>
                 </div>
                 <div class="link-loading-bar"></div>
             </a>
@@ -457,6 +535,8 @@
             </a>
         </main>
         
+        <div class="section-separator"></div>
+
         <section id="latestContentSection" class="latest-content-section">
             <h2>Najnowszy filmik na youtube!</h2>
             <div class="content-cards-container">
@@ -475,6 +555,8 @@
         </footer>
     </div>
     
+    <div id="copy-message-container"></div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const youtubeThumbnail = document.getElementById('youtubeThumbnail');
@@ -495,6 +577,52 @@
             }
 
             updateThumbnail();
+
+            function copyTextToClipboard(text) {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                } catch (err) {
+                    console.error('Błąd podczas kopiowania tekstu: ', err);
+                }
+                document.body.removeChild(textArea);
+            }
+
+            function displayCopyMessage(messageText) {
+                const container = document.getElementById('copy-message-container');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'copy-message';
+                messageDiv.textContent = messageText;
+                
+                container.appendChild(messageDiv);
+
+                setTimeout(() => {
+                    messageDiv.classList.add('show');
+                }, 10);
+                
+                setTimeout(() => {
+                    messageDiv.classList.remove('show');
+                    setTimeout(() => {
+                        container.removeChild(messageDiv);
+                    }, 300);
+                }, 1500);
+            }
+
+            document.querySelectorAll('.copy-icon').forEach(icon => {
+                icon.addEventListener('click', (event) => {
+                    event.preventDefault(); 
+                    event.stopPropagation();
+                    
+                    const code = event.currentTarget.getAttribute('data-code');
+                    
+                    copyTextToClipboard(code);
+                    
+                    displayCopyMessage('Kod został skopiowany!');
+                });
+            });
         });
     </script>
 </body>
