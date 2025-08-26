@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MokrySuchar</title>
     <link rel="shortcut icon" type="MS.png" href="images/MS.png">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-
     <style>
     body {
         background-color: #000022;
@@ -245,11 +243,18 @@
     .link-subtitle {
         font-weight: 400;
         font-size: 12px;
-        opacity: 0.8;
         margin: 0;
         display: flex;
         align-items: center;
         gap: 5px;
+        color: #4169e1;
+        opacity: 1;
+        transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+    
+    .link-button:hover .link-subtitle {
+        color: #4169e1;
+        opacity: 1;
     }
 
     .link-image-container {
@@ -276,7 +281,13 @@
     .footer-text {
         margin-top: 40px;
         font-size: 11px;
-        color: #aaa; 
+        color: #aaaaaa;
+    }
+
+    .copyright-text {
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.2); 
+        margin-top: 15px;
     }
 
     .age-restriction-image {
@@ -394,7 +405,6 @@
             <h1 class="profile-name">MokrySuchar</h1>
             
             <p class="profile-contact">Kontakt: mokrysuchar@stormmedia.gg <img src="images/mokryez.png" alt="MokryEz Icon" class="contact-icon"></p>
-
         </header>
         
         <div class="social-icons-section">
@@ -425,9 +435,7 @@
                 </a>
             </div>
         </div>
-
         <div class="section-separator"></div>
-
         <main class="links-container">
             <a href="https://csgo-skins.com/?ref=Suchar" target="_blank" class="link-button">
                 <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
@@ -449,7 +457,6 @@
                 </div>
                 <div class="link-loading-bar"></div>
             </a>
-            
             <a href="https://bit.ly/MokrySuchar_Fortuna_Bonus" target="_blank" class="link-button">
                 <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
                 <div class="link-icon">
@@ -470,7 +477,6 @@
                 </div>
                 <div class="link-loading-bar"></div>
             </a>
-            
             <a href="http://pl.weareholy.com/suchar" target="_blank" class="link-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -497,7 +503,6 @@
                 </div>
                 <div class="link-loading-bar"></div>
             </a>
-            
             <a href="https://www.instant-gaming.com/?igr=suchar" target="_blank" class="link-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -515,7 +520,6 @@
                 </div>
                 <div class="link-loading-bar"></div>
             </a>
-            
             <a href="https://tipo.live/p/mokrysuchar" target="_blank" class="link-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -534,9 +538,7 @@
                 <div class="link-loading-bar"></div>
             </a>
         </main>
-        
         <div class="section-separator"></div>
-
         <section id="latestContentSection" class="latest-content-section">
             <h2>Najnowszy filmik na youtube!</h2>
             <div class="content-cards-container">
@@ -545,7 +547,6 @@
                 </a>
             </div>
         </section>
-
         <footer class="footer-text">
             <strong>⚠️ GRAJ ODPOWIEDZIALNIE ⚠️</strong><br>
             Ta strona zawiera linki do zewnętrznych serwisów. 
@@ -553,31 +554,24 @@
             z obowiązującym prawem w Twoim kraju. Nie promujemy działań nielegalnych 
             i nie ponosimy odpowiedzialności za skutki korzystania z tych serwisów.
         </footer>
+        <p class="copyright-text">© 2025 Made by top1malpiszon. Wszelkie prawa zastrzeżone.</p>
     </div>
-    
     <div id="copy-message-container"></div>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const youtubeThumbnail = document.getElementById('youtubeThumbnail');
             const youtubeLink = document.getElementById('youtubeLink');
-
             function updateThumbnail() {
                 const url = youtubeLink.href;
-
                 const regex = /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/))([\w-]+)/;
                 const match = url.match(regex);
-
                 if (match && match[1]) {
                     const videoId = match[1];
                     const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-                    
                     youtubeThumbnail.src = thumbnailUrl;
                 }
             }
-
             updateThumbnail();
-
             function copyTextToClipboard(text) {
                 const textArea = document.createElement("textarea");
                 textArea.value = text;
@@ -590,19 +584,15 @@
                 }
                 document.body.removeChild(textArea);
             }
-
             function displayCopyMessage(messageText) {
                 const container = document.getElementById('copy-message-container');
                 const messageDiv = document.createElement('div');
                 messageDiv.className = 'copy-message';
                 messageDiv.textContent = messageText;
-                
                 container.appendChild(messageDiv);
-
                 setTimeout(() => {
                     messageDiv.classList.add('show');
                 }, 10);
-                
                 setTimeout(() => {
                     messageDiv.classList.remove('show');
                     setTimeout(() => {
@@ -610,16 +600,12 @@
                     }, 300);
                 }, 1500);
             }
-
             document.querySelectorAll('.copy-icon').forEach(icon => {
                 icon.addEventListener('click', (event) => {
                     event.preventDefault(); 
                     event.stopPropagation();
-                    
                     const code = event.currentTarget.getAttribute('data-code');
-                    
                     copyTextToClipboard(code);
-                    
                     displayCopyMessage('Kod został skopiowany!');
                 });
             });
