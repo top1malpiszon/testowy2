@@ -4,617 +4,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MokrySuchar</title>
-    <link rel="shortcut icon" type="MS.png" href="images/MS.png">
+    <title>Sklep za punkty!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
-    body {
-        background-color: #000022;
-        background-image:
-            radial-gradient(circle at 100% 100%, transparent 10%, #0a0b16 15%, #000033 20%, #000044 30%, transparent 45%),
-            radial-gradient(circle at 0% 0%, transparent 10%, #0a0b16 15%, #000033 20%, #000044 30%, transparent 45%);
-        background-size: 200% 200%;
-        background-position: 50% 50%;
-        animation: ocean-waves 12s ease-in-out infinite alternate;
-        color: #fff;
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-    }
-
-    @keyframes ocean-waves {
-        from {
-            background-position: 0% 0%;
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
         }
-        to {
-            background-position: 100% 100%;
+
+        .content-wrapper {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(0px); 
         }
-    }
-
-    .page-container {
-        width: 100%;
-        max-width: 600px;
-        padding: 20px;
-        box-sizing: border-box;
-        text-align: center;
-    }
-
-    .profile-header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .avatar-image {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover;
-        box-shadow: 0 0 0 4px #4169e1, 0 0 20px 8px rgba(65, 105, 225, 0.7);
-        animation: glow-pulse 2.5s infinite;
-    }
-
-    @keyframes glow-pulse {
-        0% {
-            box-shadow: 0 0 0 4px rgba(65, 105, 225, 0.7), 0 0 20px 8px rgba(65, 105, 225, 0.5);
+        
+        @media (max-width: 640px) {
+            .content-wrapper {
+                justify-content: center;
+            }
         }
-        50% {
-            box-shadow: 0 0 0 4px #4169e1, 0 0 25px 12px rgba(65, 105, 225, 0.8);
+
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #000000;
         }
-        100% {
-            box-shadow: 0 0 0 4px rgba(65, 105, 225, 0.7), 0 0 20px 8px rgba(65, 105, 225, 0.5);
-        }
-    }
-
-    .profile-name {
-        margin-top: 10px;
-        font-size: 24px;
-        font-weight: 700;
-        margin-bottom: 0;
-    }
-    
-    .profile-contact {
-        font-size: 16px;
-        font-weight: 400;
-        margin-top: 5px;
-    }
-
-    .contact-icon {
-        width: 20px;
-        height: 20px;
-        margin-left: 5px;
-        vertical-align: middle;
-    }
-
-    .social-icons-section {
-        margin-top: 30px;
-        text-align: center;
-        padding: 0 20px;
-    }
-
-    .social-icons-section h2 {
-        font-size: 14px;
-        font-weight: 600;
-        margin: 0;
-        text-transform: uppercase;
-        color: #fff;
-        opacity: 0.6;
-    }
-
-    .social-icons-section .social-icons {
-        display: flex;
-        justify-content: center;
-        gap: 20px; 
-        margin-top: 20px;
-    }
-    
-    .social-link {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 70px;
-        height: 70px;
-        background-color: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 8px;
-        transition: all 0.3s ease-in-out;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .social-link:hover {
-        background-color: rgba(65, 105, 225, 0.3);
-        border-color: #4169e1;
-        box-shadow: 0 0 15px 5px rgba(65, 105, 225, 0.5);
-        transform: scale(1.1);
-    }
-
-    .social-link img {
-        width: 50px; 
-        height: 50px; 
-        object-fit: contain;
-        border-radius: 8px; 
-    }
-
-    .social-link .link-loading-bar {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 4px;
-        background-color: #4169e1; 
-        transition: width 0.8s ease-in-out;
-    }
-
-    .social-link:hover .link-loading-bar {
-        width: 100%;
-    }
-
-    .links-container {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        margin-top: 30px;
-    }
-    .link-button {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 15px;
-        background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        text-decoration: none;
-        color: #fff;
-        transition: all 0.3s ease-in-out;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    .link-button:hover {
-        background-color: rgba(65, 105, 225, 0.15);
-        border-color: #4169e1;
-        box-shadow: 0 0 20px 5px rgba(65, 105, 225, 0.4);
-    }
-    
-    .link-button .link-loading-bar {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 4px;
-        background-color: #4169e1;
-        transition: width 0.8s ease-in-out;
-    }
-
-    .link-button:hover .link-loading-bar {
-        width: 100%;
-    }
-    
-    .holy-icon {
-        position: absolute;
-        right: 10px;
-        top: 30px; 
-        width: 20px;
-        height: 20px;
-        z-index: 2;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-        color: #fff;
-    }
-    
-    .link-button:hover .holy-icon {
-        opacity: 1;
-    }
-
-    .link-icon {
-        width: 48px;
-        height: 48px;
-        margin-right: 15px;
-        border-radius: 8px;
-        overflow: hidden;
-        flex-shrink: 0;
-    }
-
-    .link-icon img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .link-text {
-        text-align: left;
-        flex-grow: 1;
-    }
-
-    .link-title {
-        font-weight: 700;
-        font-size: 16px;
-        margin: 0;
-    }
-
-    .link-subtitle {
-        font-weight: 400;
-        font-size: 12px;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        color: #4169e1;
-        opacity: 1;
-        transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    }
-    
-    .link-button:hover .link-subtitle {
-        color: #4169e1;
-        opacity: 1;
-    }
-
-    .link-image-container {
-        position: relative;
-        border-radius: 6px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    .link-image-container .link-button:hover .link-image-banner {
-        transform: scale(1.05);
-    }
-
-    .link-title-overlay {
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-        color: white;
-        font-size: 20px;
-        font-weight: 700;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-    }
-
-    .footer-text {
-        margin-top: 40px;
-        font-size: 11px;
-        color: #aaaaaa;
-    }
-
-    .copyright-text {
-        font-size: 10px;
-        color: rgba(255, 255, 255, 0.2); 
-        margin-top: 15px;
-    }
-
-    .age-restriction-image {
-        position: absolute;
-        right: 5px;
-        top: 30px;
-        width: 20px;
-        height: auto;
-        z-index: 2;
-    }
-
-    .latest-content-section {
-        margin-top: 40px;
-        text-align: center;
-        padding: 0 20px;
-    }
-
-    .latest-content-section h2 {
-        font-size: 18px;
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: #4169e1;
-        text-align: center;
-    }
-    
-    .content-cards-container {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap; 
-    }
-
-    .content-card-link {
-        display: block;
-        width: 100%;
-        max-width: 160px;
-        background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        text-decoration: none;
-        color: #fff;
-        transition: all 0.3s ease-in-out;
-        overflow: hidden;
-    }
-
-    .content-card-link:hover {
-        background-color: rgba(65, 105, 225, 0.15);
-        border-color: #4169e1;
-        box-shadow: 0 0 20px 5px rgba(65, 105, 225, 0.4);
-        transform: scale(1.05);
-    }
-
-    .content-card-image {
-        width: 100%;
-        height: auto;
-        display: block;
-        border-bottom: none;
-    }
-    
-    .section-separator {
-        width: 80%;
-        height: 2px;
-        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), #4169e1, rgba(255, 255, 255, 0.1));
-        margin: 40px auto;
-        border-radius: 1px;
-        opacity: 0.6;
-    }
-
-    .copy-icon {
-        cursor: pointer;
-        display: inline-block;
-        vertical-align: middle;
-        transition: transform 0.2s ease-in-out;
-        width: 16px;
-        height: 16px;
-    }
-    
-    .copy-icon:hover {
-        transform: scale(1.1);
-    }
-    
-    #copy-message-container {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
-        pointer-events: none;
-    }
-
-    .copy-message {
-        background-color: #4169e1;
-        color: #fff;
-        padding: 10px 15px;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        font-size: 14px;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-    }
-
-    .copy-message.show {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .bold-code {
-        font-weight: 700;
-        color: #fff;
-    }
     </style>
 </head>
 
 <body>
-    <div class="page-container">
-        <header class="profile-header">
-            <div class="profile-avatar">
-                <img src="images/suchar.png" alt="MokrySuchar Avatar" class="avatar-image">
+    <canvas id="bg-canvas"></canvas>
+    
+    <div class="content-wrapper">
+        <div class="rules-card p-8 rounded-xl max-w-xl w-full border border-gray-900">
+            <h2 class="text-2xl font-bold mb-6 border-b border-gray-700 pb-3 text-white">
+                Zasady zdobywania punktów
+            </h2>
+
+            <div class="space-y-4">
+                
+                <div class="flex justify-between items-center text-base">
+                    <span class="text-white">KAŻDE 5 MINUT OGLĄDANIA</span>
+                    <span class="font-semibold text-white text-lg">5 pkt</span> 
+                </div>
+
+                <div class="flex justify-between items-center text-base">
+                    <span class="text-white">SUBY OTRZYMUJĄ BONUSOWE</span>
+                    <span class="font-semibold text-white text-lg">20 pkt</span> 
+                </div>
+
+                <div class="flex justify-between items-center text-base">
+                    <span class="text-white">SUBSKRYPCJA</span>
+                    <span class="font-semibold text-white text-lg">200 pkt</span> 
+                </div>
+
             </div>
-            <h1 class="profile-name">MokrySuchar</h1>
             
-            <p class="profile-contact">Kontakt: mokrysuchar@stormmedia.gg <img src="images/mokryez.png" alt="MokryEz Icon" class="contact-icon"></p>
-        </header>
-        
-        <div class="social-icons-section">
-            <div class="social-icons">
-                <a href="https://www.twitch.tv/MokrySuchar" target="_blank" class="social-link">
-                    <img src="images/twitch.png" alt="Twitch Logo">
-                    <div class="link-loading-bar"></div>
-                </a>
-                <a href="https://www.instagram.com/mokrysuchar" target="_blank" class="social-link">
-                    <img src="images/instagram.png" alt="Instagram Logo">
-                    <div class="link-loading-bar"></div>
-                </a>
-                <a href="https://kick.com/MokrySuchar" target="_blank" class="social-link">
-                    <img src="images/kick3.png" alt="Kick Logo">
-                    <div class="link-loading-bar"></div>
-                </a>
-                <a href="https://www.youtube.com/@MokrySucharLIVE" target="_blank" class="social-link">
-                    <img src="images/yt4.png" alt="YouTube Logo">
-                    <div class="link-loading-bar"></div>
-                </a>
-                <a href="https://x.com/MokrySuchar" target="_blank" class="social-link">
-                    <img src="images/twitter.png" alt="X Logo">
-                    <div class="link-loading-bar"></div>
-                </a>
-                <a href="https://discord.com/invite/kw9TSBCh3Q" target="_blank" class="social-link">
-                    <img src="images/discord2.png" alt="Discord Logo">
-                    <div class="link-loading-bar"></div>
-                </a>
-            </div>
         </div>
-        <div class="section-separator"></div>
-        <main class="links-container">
-            <a href="https://csgo-skins.com/?ref=Suchar" target="_blank" class="link-button">
-                <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
-                <div class="link-icon">
-                    <img src="images/csgoskins.png" alt="CS icon">
+        
+        <div class="mt-8 border border-gray-900 rounded-xl max-w-xl w-full">
+            <a href="https://botrix.live/k/lukisteve/shop" target="_blank" class="block p-4 text-white transition duration-300 ease-in-out hover:bg-white/5">
+                <div class="flex justify-between items-center">
+                    <div class="flex-grow pr-4">
+                        <span class="text-2xl font-bold block">Przejdź do sklepu</span>
+                    </div>
+
+                    <div class="flex-shrink-0 p-3 bg-gray-900 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 12.81a2 2 0 0 0 1.76 1.54l9.5 1.62a2 2 0 0 0 2.08-1.74l1.35-7.39a2 2 0 0 0-2-2.22H6"></path>
+                        </svg>
+                    </div>
                 </div>
-                <div class="link-text">
-                    <p class="link-title">CSGOSKINS - 2.10 I 10% WIĘCEJ DO DOŁADOWANIA</p>
-                    <p class="link-subtitle">
-                        Kod: <span class="bold-code">SUCHAR</span> 
-                        <span class="copy-icon" data-code="SUCHAR">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect width="13" height="13" x="9" y="9" rx="2" ry="2" />
-                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                            </svg>
-                        </span>
-                    </p>
-                </div>
-                <div class="link-loading-bar"></div>
             </a>
-            <a href="https://bit.ly/MokrySuchar_Fortuna_Bonus" target="_blank" class="link-button">
-                <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
-                <div class="link-icon">
-                    <img src="images/fortuna3.png" alt="fortuna icon">
-                </div>
-                <div class="link-text">
-                    <p class="link-title">300 zł we freebetach na start! </p>
-                    <p class="link-subtitle">
-                        Kod: <span class="bold-code">SUCHAR</span> 
-                        <span class="copy-icon" data-code="SUCHAR">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect width="13" height="13" x="9" y="9" rx="2" ry="2" />
-                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                            </svg>
-                        </span>
-                    </p>
-                </div>
-                <div class="link-loading-bar"></div>
-            </a>
-            <a href="http://pl.weareholy.com/suchar" target="_blank" class="link-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="holy-icon">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                    <polyline points="15 3 21 3 21 9" />
-                    <line x1="10" x2="21" y1="14" y2="3" />
-                </svg>
-                <div class="link-icon">
-                    <img src="images/holy11.png" alt="holy icon">
-                </div>
-                <div class="link-text">
-                    <p class="link-title">Zamów zestaw startowy Holy! 10% Taniej!</p>
-                    <p class="link-subtitle">
-                        Kod: <span class="bold-code">SUCHAR</span> 
-                        <span class="copy-icon" data-code="SUCHAR">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect width="13" height="13" x="9" y="9" rx="2" ry="2" />
-                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                            </svg>
-                        </span>
-                    </p>
-                </div>
-                <div class="link-loading-bar"></div>
-            </a>
-            <a href="https://www.instant-gaming.com/?igr=suchar" target="_blank" class="link-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="holy-icon">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                    <polyline points="15 3 21 3 21 9" />
-                    <line x1="10" x2="21" y1="14" y2="3" />
-                </svg>
-                <div class="link-icon">
-                    <img src="images/instant2.png" alt="instant icon">
-                </div>
-                <div class="link-text">
-                    <p class="link-title">Instant Gaming ciesz się cenami aż do 90% taniej!</p>
-                    <p class="link-subtitle"></p>
-                </div>
-                <div class="link-loading-bar"></div>
-            </a>
-            <a href="https://tipo.live/p/mokrysuchar" target="_blank" class="link-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="holy-icon">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                    <polyline points="15 3 21 3 21 9" />
-                    <line x1="10" x2="21" y1="14" y2="3" />
-                </svg>
-                <div class="link-icon">
-                    <img src="images/tipo4.png" alt="tipo icon">
-                </div>
-                <div class="link-text">
-                    <p class="link-title">DONATE!</p>
-                    <p class="link-subtitle">Dotacje nie podlegają zwrotom!</p>
-                </div>
-                <div class="link-loading-bar"></div>
-            </a>
-        </main>
-        <div class="section-separator"></div>
-        <section id="latestContentSection" class="latest-content-section">
-            <h2>Najnowszy filmik na youtube!</h2>
-            <div class="content-cards-container">
-                <a href="https://www.youtube.com/watch?v=KBekukwPtqk" target="_blank" class="content-card-link" id="youtubeLink">
-                    <img src="https://i.ytimg.com/vi/kFoS3yZ4D9c/hqdefault.jpg" alt="Miniatura wideo 1" class="content-card-image" id="youtubeThumbnail">
-                </a>
-            </div>
-        </section>
-        <footer class="footer-text">
-            <strong>⚠️ GRAJ ODPOWIEDZIALNIE ⚠️</strong><br>
-            Ta strona zawiera linki do zewnętrznych serwisów. 
-            Korzystanie z nich odbywa się na własną odpowiedzialność i powinno być zgodne 
-            z obowiązującym prawem w Twoim kraju. Nie promujemy działań nielegalnych 
-            i nie ponosimy odpowiedzialności za skutki korzystania z tych serwisów.
-        </footer>
-        <p class="copyright-text">© 2025 Made by top1malpiszon. Wszelkie prawa zastrzeżone.</p>
+        </div>
     </div>
-    <div id="copy-message-container"></div>
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const youtubeThumbnail = document.getElementById('youtubeThumbnail');
-            const youtubeLink = document.getElementById('youtubeLink');
-            function updateThumbnail() {
-                const url = youtubeLink.href;
-                const regex = /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/))([\w-]+)/;
-                const match = url.match(regex);
-                if (match && match[1]) {
-                    const videoId = match[1];
-                    const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-                    youtubeThumbnail.src = thumbnailUrl;
+            const canvas = document.getElementById('bg-canvas');
+            const ctx = canvas.getContext('2d');
+            const dots = [];
+            const numDots = 150; 
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            function createDots() {
+                for (let i = 0; i < numDots; i++) {
+                    dots.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        vx: (Math.random() - 0.5) * 0.5,
+                        vy: (Math.random() - 0.5) * 0.5,
+                        size: Math.random() * 2 + 0.5,
+                        color: `rgba(255, 0, 0, ${Math.random() * 0.6 + 0.2})` 
+                    });
                 }
             }
-            updateThumbnail();
-            function copyTextToClipboard(text) {
-                const textArea = document.createElement("textarea");
-                textArea.value = text;
-                document.body.appendChild(textArea);
-                textArea.select();
-                try {
-                    document.execCommand('copy');
-                } catch (err) {
-                    console.error('Błąd podczas kopiowania tekstu: ', err);
-                }
-                document.body.removeChild(textArea);
-            }
-            function displayCopyMessage(messageText) {
-                const container = document.getElementById('copy-message-container');
-                const messageDiv = document.createElement('div');
-                messageDiv.className = 'copy-message';
-                messageDiv.textContent = messageText;
-                container.appendChild(messageDiv);
-                setTimeout(() => {
-                    messageDiv.classList.add('show');
-                }, 10);
-                setTimeout(() => {
-                    messageDiv.classList.remove('show');
-                    setTimeout(() => {
-                        container.removeChild(messageDiv);
-                    }, 300);
-                }, 1500);
-            }
-            document.querySelectorAll('.copy-icon').forEach(icon => {
-                icon.addEventListener('click', (event) => {
-                    event.preventDefault(); 
-                    event.stopPropagation();
-                    const code = event.currentTarget.getAttribute('data-code');
-                    copyTextToClipboard(code);
-                    displayCopyMessage('Kod został skopiowany!');
+
+            function drawDots() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                dots.forEach(dot => {
+                    ctx.beginPath();
+                    ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI * 2);
+                    ctx.fillStyle = dot.color;
+                    ctx.fill();
                 });
-            });
+            }
+
+            function updateDots() {
+                dots.forEach(dot => {
+                    dot.x += dot.vx;
+                    dot.y += dot.vy;
+
+                    if (dot.x < 0 || dot.x > canvas.width) dot.vx *= -1;
+                    if (dot.y < 0 || dot.y > canvas.height) dot.vy *= -1;
+                });
+            }
+
+            function animate() {
+                updateDots();
+                drawDots();
+                requestAnimationFrame(animate);
+            }
+
+            createDots();
+            animate();
         });
     </script>
+
 </body>
+
 </html>
