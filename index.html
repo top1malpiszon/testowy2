@@ -267,7 +267,18 @@
             transition: transform 0.3s ease;
         }
 
-        .bento-item:hover .icon-box-social {
+        .icon-box-donate {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .bento-item:hover .icon-box-social, 
+        .bento-item:hover .icon-box-donate {
             transform: scale(1.1);
         }
 
@@ -585,7 +596,7 @@
 
         <a href="https://www.paymedia.pl/LeQu" target="_blank"
             class="bento-item donate-item partner-green md:col-start-2 flex flex-col items-center justify-center text-center hover:bg-green-500/10">
-            <div class="icon-box-social"><img src="images/lequtdonate.png" class="w-16 h-16 object-contain" alt="Donate">
+            <div class="icon-box-donate"><img src="images/lequtdonate.png" class="w-28 h-28 object-contain" alt="Donate">
             </div>
             <span class="text-[10px] font-black uppercase tracking-[0.1em] text-green-500">DONATE - nie podlega zwrotom</span>
         </a>
